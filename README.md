@@ -1,7 +1,14 @@
 # [Fork of Enviro+ Python library by Pimoroni](https://github.com/pimoroni/enviroplus-python)
 
-I've done changes by adding code relevant to plant growth monitoring, which is conveniently placed under [modified_code](https://github.com/argtus/enviroplus-python/tree/master/modified_code).
+[![Python Tests](https://github.com/argtus/enviroplus-python/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/argtus/enviroplus-python/actions/workflows/test.yml)
+[![Snyk Security Scan](https://github.com/argtus/enviroplus-python/actions/workflows/snyk.yml/badge.svg?branch=main)](https://github.com/argtus/enviroplus-python/actions/workflows/snyk.yml)
+[![Dependabot Scan](https://github.com/argtus/enviroplus-python/actions/workflows/dependabot.yml/badge.svg)](https://github.com/argtus/enviroplus-python/actions/workflows/dependabot.yml)
+[![Secret Scan](https://github.com/argtus/enviroplus-python/actions/workflows/github-code-scanning/codeql/badge.svg?branch=main)](https://github.com/argtus/enviroplus-python/actions/workflows/github-code-scanning/codeql)
+[![Coverage Status](https://coveralls.io/repos/github/argtus/enviroplus-python/badge.svg?branch=master)](https://coveralls.io/github/pimoroni/enviroplus-python?branch=main)
+[![PyPi Package](https://img.shields.io/pypi/v/enviroplus.svg)](https://pypi.python.org/pypi/enviroplus)
+[![Python Versions](https://img.shields.io/pypi/pyversions/enviroplus.svg)](https://pypi.python.org/pypi/enviroplus)
 
+I've done changes by adding code relevant to plant growth monitoring, which is conveniently placed under [modified_code](https://github.com/argtus/enviroplus-python/tree/master/modified_code).
 
 <details>
   <summary>Original README</summary>
@@ -10,7 +17,7 @@ I've done changes by adding code relevant to plant growth monitoring, which is c
 Designed for environmental monitoring, Enviro+ lets you measure air quality (pollutant gases and particulates), temperature, pressure, humidity, light, and noise level. Learn more - https://shop.pimoroni.com/products/enviro-plus
 
 [![Build Status](https://travis-ci.com/pimoroni/enviroplus-python.svg?branch=master)](https://travis-ci.com/pimoroni/enviroplus-python)
-[![Coverage Status](https://coveralls.io/repos/github/pimoroni/enviroplus-python/badge.svg?branch=master)](https://coveralls.io/github/pimoroni/enviroplus-python?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/pimoroni/enviroplus-python/badge.svg?branch=master)](https://coveralls.io/github/pimoroni/enviroplus-python?branch=main)
 [![PyPi Package](https://img.shields.io/pypi/v/enviroplus.svg)](https://pypi.python.org/pypi/enviroplus)
 [![Python Versions](https://img.shields.io/pypi/pyversions/enviroplus.svg)](https://pypi.python.org/pypi/enviroplus)
 
