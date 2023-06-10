@@ -31,7 +31,7 @@ jobs:
           tox -e py
 
       - name: Send Coveralls Report
-        uses: coverallsapp/github-action@v2.0.0
+        uses: coverallsapp/github-action@v2.2.0
         with:
           # Coveralls uses GITHUB_TOKEN to verify the posted coverage data.
           # It is builtin to GitHub Actions, so no need to set it up.
