@@ -12,7 +12,7 @@ pms5003==0.0.5
 pytest==7.4.0
 pytz==2023.3
 requests==2.31.0
-setuptools==68.0.0
+setuptools==68.2.2
 smbus==1.1.post2
 smbus2==0.4.2
 sounddevice==0.4.6
