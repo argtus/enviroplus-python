@@ -1,13 +1,13 @@
 import pytest
 
 
-def test_gas_setup(gpiod, gpiodevice, smbus, GPIO, gas):
+def test_gas_setup(gpiod, gpiodevice, smbus, gas):
     from enviroplus import gas
     gas._is_setup = False
     gas.setup()
 
 
-def test_gas_unavailable(gpiod, gpiodevice, mocksmbus, GPIO, gas):
+def test_gas_unavailable(gpiod, gpiodevice, mocksmbus, gas):
     from enviroplus import gas
     mocksmbus.SMBus(1).read_i2c_block_data.side_effect = IOError("Oh no!")
     gas._is_setup = False
@@ -18,14 +18,14 @@ def test_gas_unavailable(gpiod, gpiodevice, mocksmbus, GPIO, gas):
         gas.read_all()
 
 
-def test_gas_available(gpiod, gpiodevice, smbus_notimeout, GPIO, gas):
+def test_gas_available(gpiod, gpiodevice, smbus_notimeout, gas):
     from enviroplus import gas
     gas._is_setup = False
     gas.available.return_value = True
     assert gas.available() is True
 
 
-def test_gas_read_all(gpiod, gpiodevice, smbus, GPIO, gas):
+def test_gas_read_all(gpiod, gpiodevice, smbus, gas):
     from enviroplus import gas
     gas._is_setup = False
 
@@ -49,7 +49,7 @@ def test_gas_read_all(gpiod, gpiodevice, smbus, GPIO, gas):
     assert "Oxidising" in str(result)
 
 
-def test_gas_read_each(gpiod, gpiodevice, smbus, GPIO, gas):
+def test_gas_read_each(gpiod, gpiodevice, smbus, gas):
     from enviroplus import gas
     gas._is_setup = False
 
@@ -62,7 +62,7 @@ def test_gas_read_each(gpiod, gpiodevice, smbus, GPIO, gas):
     assert int(gas.read_nh3()) == 16813
 
 
-def test_gas_read_adc(gpiod, gpiodevice, smbus, GPIO, gas):
+def test_gas_read_adc(gpiod, gpiodevice, smbus, gas):
     from enviroplus import gas
     gas._is_setup = False
 
@@ -72,7 +72,7 @@ def test_gas_read_adc(gpiod, gpiodevice, smbus, GPIO, gas):
     assert gas.read_adc() == 0.255
 
 
-def test_gas_read_adc_default_gain(gpiod, gpiodevice, smbus, GPIO, gas):
+def test_gas_read_adc_default_gain(gpiod, gpiodevice, smbus, gas):
     from enviroplus import gas
     gas._is_setup = False
 
@@ -82,7 +82,7 @@ def test_gas_read_adc_default_gain(gpiod, gpiodevice, smbus, GPIO, gas):
     assert gas.read_adc() == 0.765
 
 
-def test_gas_read_adc_str(gpiod, gpiodevice, smbus, GPIO, gas):
+def test_gas_read_adc_str(gpiod, gpiodevice, smbus, gas):
     from enviroplus import gas
     gas._is_setup = False
 
@@ -94,7 +94,7 @@ def test_gas_read_adc_str(gpiod, gpiodevice, smbus, GPIO, gas):
     assert "ADC" in str(gas.read_all())
 
 
-def test_gas_cleanup(gpiod, gpiodevice, smbus, GPIO, gas):
+def test_gas_cleanup(gpiod, gpiodevice, smbus, gas):
     from enviroplus import gas
 
     gas.cleanup()
