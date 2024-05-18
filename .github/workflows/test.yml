@@ -26,7 +26,7 @@ jobs:
           python3 -m pip install --upgrade pip setuptools tox pytest pytest-cov
 
       - name: Run Tests
-        working-directory: library
+        working-directory: ./library
         run: |
           tox -e py
 
