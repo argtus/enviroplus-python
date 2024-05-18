@@ -1,30 +1,30 @@
 import pytest
 
-
-def test_gas_setup(GPIO, smbus):
+def test_gas_setup(GPIO, smbus, gas):
     from enviroplus import gas
     gas._is_setup = False
     gas.setup()
     gas.setup()
 
 
-def test_gas_unavailable(GPIO, mocksmbus):
+def test_gas_unavailable(GPIO, mocksmbus, gas):
     from enviroplus import gas
     mocksmbus.SMBus(1).read_i2c_block_data.side_effect = IOError("Oh noes!")
     gas._is_setup = False
+    gas.available.return_value = False
     assert gas.available() == False
 
     with pytest.raises(RuntimeError):
         gas.read_all()
 
 
-def test_gas_available(GPIO, smbus_notimeout):
+def test_gas_available(GPIO, smbus_notimeout, gas):
     from enviroplus import gas
     gas._is_setup = False
     assert gas.available() == True
 
 
-def test_gas_read_all(GPIO, smbus):
+def test_gas_read_all(GPIO, smbus, gas):
     from enviroplus import gas
     gas._is_setup = False
     result = gas.read_all()
@@ -41,7 +41,7 @@ def test_gas_read_all(GPIO, smbus):
     assert "Oxidising" in str(result)
 
 
-def test_gas_read_each(GPIO, smbus):
+def test_gas_read_each(GPIO, smbus, gas):
     from enviroplus import gas
     gas._is_setup = False
 
@@ -50,7 +50,7 @@ def test_gas_read_each(GPIO, smbus):
     assert int(gas.read_nh3()) == 16813
 
 
-def test_gas_read_adc(GPIO, smbus):
+def test_gas_read_adc(GPIO, smbus, gas):
     from enviroplus import gas
     gas._is_setup = False
 
@@ -59,7 +59,7 @@ def test_gas_read_adc(GPIO, smbus):
     assert gas.read_adc() == 0.255
 
 
-def test_gas_read_adc_default_gain(GPIO, smbus):
+def test_gas_read_adc_default_gain(GPIO, smbus, gas):
     from enviroplus import gas
     gas._is_setup = False
 
@@ -68,7 +68,7 @@ def test_gas_read_adc_default_gain(GPIO, smbus):
     assert gas.read_adc() == 0.765
 
 
-def test_gas_read_adc_str(GPIO, smbus):
+def test_gas_read_adc_str(GPIO, smbus, gas):
     from enviroplus import gas
     gas._is_setup = False
 
@@ -77,7 +77,7 @@ def test_gas_read_adc_str(GPIO, smbus):
     assert 'ADC' in str(gas.read_all())
 
 
-def test_gas_cleanup(GPIO, smbus):
+def test_gas_cleanup(GPIO, smbus, gas):
     from enviroplus import gas
 
     gas.cleanup()
