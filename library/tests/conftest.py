@@ -113,3 +113,13 @@ def numpy():
     sys.modules['numpy'] = numpy
     yield numpy
     del sys.modules['numpy']
+
+
+@pytest.fixture(scope="function", autouse=False)
+def gas():
+    gas = mock.MagicMock()
+    gas.available.return_value = True
+    gas.read_all.return_value = mock.Mock(oxidising=16641.0, reducing=16727.0, nh3=16813.0, adc=0.255)
+    sys.modules["enviroplus.gas"] = gas
+    yield gas
+    del sys.modules["enviroplus.gas"]
