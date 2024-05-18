@@ -1,6 +1,6 @@
 ads1015==1.0.0
 astral==3.2
-bme280==0.6
+bme280==0.7
 fonts==0.0.3
 i2cdevice==1.0.0
 ltr559==1.0.0
