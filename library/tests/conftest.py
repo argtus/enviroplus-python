@@ -60,15 +60,6 @@ def gpiodevice():
     del sys.modules["gpiodevice"]
 
 
-@pytest.fixture(scope="function", autouse=True)
-def rpi_gpio():
-    sys.modules["RPi"] = mock.Mock()
-    sys.modules["RPi.GPIO"] = mock.Mock()
-    yield sys.modules["RPi.GPIO"]
-    del sys.modules["RPi.GPIO"]
-    del sys.modules["RPi"]
-
-
 @pytest.fixture(scope="function", autouse=False)
 def spidev():
     """Mock spidev module."""
