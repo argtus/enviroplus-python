@@ -32,6 +32,14 @@ def cleanup():
             pass
 
 
+@pytest.fixture(scope="function")
+def gas():
+    gas = mock.Mock()
+    sys.modules["enviroplus.gas"] = gas
+    yield gas
+    del sys.modules["enviroplus.gas"]
+
+
 @pytest.fixture(scope="function", autouse=False)
 def gpiod():
     sys.modules["gpiod"] = mock.Mock()
