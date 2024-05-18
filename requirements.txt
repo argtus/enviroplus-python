@@ -10,7 +10,7 @@ paho_mqtt==1.6.1
 Pillow==10.3.0
 pms5003==0.0.5
 pytest==7.4.2
-pytz==2023.3
+pytz==2024.1
 requests==2.31.0
 setuptools==69.2.0
 smbus==1.1.post2
