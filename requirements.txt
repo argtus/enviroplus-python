@@ -16,4 +16,4 @@ setuptools==69.2.0
 smbus==1.1.post2
 smbus2==0.4.3
 sounddevice==0.4.6
-ST7735==0.0.5
+ST7735==1.0.0
