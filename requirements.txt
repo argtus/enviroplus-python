@@ -17,3 +17,4 @@ smbus==1.1.post2
 smbus2==0.4.3
 sounddevice==0.4.6
 ST7735==0.0.5
+urllib3>=2.2.2 # not directly required, pinned by Snyk to avoid a vulnerability
